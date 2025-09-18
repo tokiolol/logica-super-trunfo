@@ -1,98 +1,103 @@
-# Super Trunfo de Países
+# 🃏 Super Trunfo em C - Comparações Avançadas
 
-Este é um jogo simples de **Super Trunfo**, implementado em **C**, onde o usuário compara atributos de dois países. O programa permite que você escolha entre cinco diferentes atributos para comparar e determinar qual país é superior, de acordo com o critério escolhido.
-
-## Como Funciona
-
-O jogo permite comparar dois países baseados em cinco atributos diferentes:
-
-1. **População** – A quantidade de habitantes de cada país.
-2. **Pontos Turísticos** – O número de pontos turísticos conhecidos de cada país.
-3. **PIB** – O Produto Interno Bruto de cada país.
-4. **Área** – A extensão territorial de cada país.
-5. **Densidade Populacional** – A densidade de habitantes por quilômetro quadrado.
-
-O usuário escolhe um dos atributos para comparar e o programa exibe qual país tem o melhor desempenho nesse critério.
-
-## Funcionalidades
-
-* O programa solicita que o usuário escolha um atributo entre os cinco disponíveis.
-* Com base na escolha, o programa realiza a comparação entre dois países (Brasil e França, no caso do código fornecido).
-* O programa exibe o vencedor de acordo com a comparação ou informa quando há um empate.
-* O código é modular, permitindo a fácil adição de novos países e atributos para futuras expansões.
-
-## Como Usar
-
-1. Clone ou baixe este repositório.
-2. Compile o código em C com seu compilador preferido (por exemplo, GCC):
-
-   ```bash
-   gcc super_trunfo.c -o super_trunfo
-   ```
-3. Execute o programa:
-
-   ```bash
-   ./super_trunfo
-   ```
-4. Escolha o número correspondente ao atributo que deseja comparar (1 a 5).
-5. O programa irá exibir o resultado da comparação entre os dois países.
-
-### Exemplo de Execução
-
-```bash
-*********** SUPER TRUNFO ***********
- ESCOLHA O ATRIBUTO DE COMPARAÇÃO:
- 1. POPULAÇÃO
- 2. PONTOS TURÍSTICOS
- 3. PIB
- 4. ÁREA
- 5. DENSIDADE POPULACIONAL
- ************************************
-DIGITE SUA OPÇÃO: 1
-O(a) Brasil é maior em população tendo 203080756, enquanto o(a) França tem 103080756!
-```
-
-## Estrutura do Código
-
-### Variáveis
-
-* **country\_name1 e country\_name2**: Armazenam os nomes dos países (Brasil e França).
-* **population1 e population2**: Armazenam a população de cada país.
-* **t\_attractions1 e t\_attractions2**: Armazenam a quantidade de pontos turísticos de cada país.
-* **pib1 e pib2**: Armazenam o PIB de cada país.
-* **area1 e area2**: Armazenam a área de cada país.
-* **p\_density1 e p\_density2**: Calculam a densidade populacional de cada país.
-
-### Lógica de Comparação
-
-A escolha do usuário determina qual variável será comparada. O programa utiliza uma estrutura de controle `switch` para processar a escolha e comparar os países com base nos valores das variáveis.
-
-* Se o valor do atributo no primeiro país for maior, o primeiro país vence.
-* Se o valor do atributo no segundo país for maior, o segundo país vence.
-* Se os valores forem iguais, ocorre um empate.
-
-### Exemplo de Comparação: População
-
-```c
-if (population1 > population2) {
-    printf("O(a) %s é maior em população tendo %d, enquanto o(a) %s tem %d!\n", country_name1, population1, country_name2, population2);
-} else if (population2 > population1) {
-    printf("O(a) %s é maior em população tendo %d, enquanto o(a) %s tem %d!\n", country_name2, population2, country_name1, population1);
-} else {
-    printf("O(a) %s é o(a) %s tem o mesmo número populacional, portando, empate!\n", country_name2, country_name1);
-}
-```
-
-## Possíveis Melhorias
-
-* **Adicionar mais países**: O código pode ser facilmente expandido para incluir mais países, bastando adicionar mais variáveis e logicamente integrar as comparações.
-* **Ajuste para valores reais**: No código atual, a área e a população são armazenadas como inteiros e floats. Para países com valores muito grandes, pode ser interessante fazer o código mais robusto, usando tipos de dados mais apropriados (como `long long` para grandes populações ou `double` para valores de PIB e densidade).
-* **Interface gráfica**: Para tornar o jogo mais interativo, seria interessante uma versão gráfica ou até uma versão baseada em web com mais interatividade.
-
-## Licença
-
-Este projeto é de código aberto e pode ser usado, modificado e distribuído sob os termos da licença MIT.
+Este projeto é a versão **nível mestre** do desafio de programação em C:  
+um jogo simplificado de **Super Trunfo** que compara **cartas de países** com base em múltiplos atributos.
 
 ---
 
-Se você tiver qualquer dúvida ou sugestão, fique à vontade para abrir uma issue ou enviar um pull request!
+## 🚀 Funcionalidades
+
+- **Escolha de dois atributos** para comparação (sem repetir o mesmo atributo).
+- **Menus dinâmicos** usando `switch`.
+- **Comparação com regras especiais**:
+  - Para todos os atributos vence o maior valor.
+  - **Exceção:** na **Densidade Populacional**, vence o menor valor.
+- **Soma final dos atributos** escolhidos:
+  - Quem tiver a maior soma vence a rodada.
+  - Se as somas forem iguais → **Empate!**
+- **Exibição clara dos resultados**:
+  - Nome dos países
+  - Valores de cada atributo escolhido
+  - Vencedor de cada atributo
+  - Soma final dos dois atributos
+  - Vencedor da rodada ou empate
+
+---
+
+## 📋 Estrutura do Código
+
+- **Cartas pré-cadastradas**: Brasil e França, com atributos:
+  - População
+  - Pontos turísticos
+  - PIB
+  - Área
+  - Densidade populacional (calculada automaticamente)
+- **Menu inicial** → escolha do primeiro atributo.
+- **Menu dinâmico** → escolha do segundo atributo (sem repetir o primeiro).
+- **Comparações** → verificam quem vence em cada atributo.
+- **Resultado final** → baseado na soma dos dois atributos.
+
+---
+
+## 🖥️ Exemplo de Execução
+
+
+****** SUPER TRUNFO ******
+ESCOLHA O PRIMEIRO ATRIBUTO:
+ 1. POPULACAO
+ 2. PONTOS TURISTICOS
+ 3. PIB
+ 4. AREA
+ 5. DENSIDADE POPULACIONAL
+ESCOLHA: 1
+
+Agora escolha OUTRO atributo:
+ 2. PONTOS TURISTICOS
+ 3. PIB
+ 4. AREA
+ 5. DENSIDADE POPULACIONAL
+ESCOLHA: 5
+
+==== RESULTADO DAS COMPARACOES ====
+Brasil x França
+Atributo 1: 203080756.00 vs 103080756.00
+Vencedor: Brasil
+Atributo 2: Densidade (23844796.00 vs 12114435.00)
+Vencedor: França
+
+Soma dos atributos:
+Brasil: 23844796.00
+França: 12114435.00
+VENCEDOR FINAL: Brasil
+
+
+---
+
+## 🛠️ Tecnologias
+
+* Linguagem: **C**
+* Compilador recomendado: `gcc`
+
+Para compilar e rodar:
+
+```bash
+gcc super_trunfo.c -o super_trunfo
+./super_trunfo
+```
+
+---
+
+## 📚 Aprendizados
+
+* Estruturas de decisão em C (`if`, `else`, `switch`).
+* Criação de menus interativos sem usar **funções**, **loops** ou **structs**.
+* Tratamento de opções inválidas com `default`.
+* Aplicação de regras especiais (atributo com vitória invertida).
+* Organização e clareza na exibição dos resultados.
+
+---
+
+## ✨ Créditos
+
+Desafio proposto como parte do aprendizado em **C - lógica e estruturas de decisão**.
+Implementado por **Natan Machado**. 🚀
